@@ -76,4 +76,12 @@ public class Universite implements Serializable {
     @OneToMany(cascade = CascadeType.ALL)
   //  @JsonIgnore
     private List<Departement>departements;
+
+    public Universite(Integer idUniversite, String nomUniv, String adresse, Date dateCreation, Statut statut) {
+        this.idUniversite = idUniversite;
+        this.nomUniv = nomUniv;
+        this.adresse = adresse;
+        this.dateCreation = dateCreation;
+        this.statut = statut;
+    }
 }
