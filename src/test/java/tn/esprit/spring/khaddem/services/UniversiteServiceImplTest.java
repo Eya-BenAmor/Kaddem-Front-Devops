@@ -1,22 +1,21 @@
 package tn.esprit.spring.khaddem.services;
 
-import org.aspectj.lang.annotation.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
 import tn.esprit.spring.khaddem.entities.Statut;
 import tn.esprit.spring.khaddem.entities.Universite;
 import tn.esprit.spring.khaddem.repositories.UniversiteRepository;
-import tn.esprit.spring.khaddem.services.UniversiteServiceImpl;
-
+import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
+
+
 
 @SpringBootTest
 public class UniversiteServiceImplTest {
