@@ -76,9 +76,8 @@ public class UniversiteServiceImpl implements  IUniversiteService{
         if (optionalUniv.isPresent() && optionalDep.isPresent()) {
             Universite universite = optionalUniv.get();
             Departement departement = optionalDep.get();
-
             universite.getDepartements().add(departement);
-            log.info("departements number " + universite.getDepartements().size());
+            log.info("nombre de departements  " + universite.getDepartements().size());
         } else {
 
             log.error("Impossible d'assigner le département à l'université. Une ou les deux entités n'ont pas été trouvées.");
