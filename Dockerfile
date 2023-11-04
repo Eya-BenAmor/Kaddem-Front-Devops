@@ -1,4 +1,4 @@
 FROM openjdk:8
 EXPOSE 80
-ADD target/testDevops-4.0-SNAPSHOT.jar testDevops-docker.jar
-ENTRYPOINT ["java","-jar","testDevops-docker.jar"]
+ADD target/khaddem-4.0.1-SNAPSHOT.jar khaddem-4.0.1.jar
+ENTRYPOINT ["java","-jar","khaddem-4.0.1.jar"]
