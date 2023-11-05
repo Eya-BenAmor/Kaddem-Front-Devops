@@ -1,0 +1,21 @@
+version: '3'
+services:
+  angular:
+    image: eyabenamor/nextimage:latest
+    ports:
+      - "3000:3000"
+
+  spring:
+    build:
+      context: ./testDevops
+    ports:
+      - "8080:8080"
+
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_USERNAME: root
+      MYSQL_ROOT_PASSWORD:
+    ports:
+      - "3306:3306"
+    restart: unless-stopped
