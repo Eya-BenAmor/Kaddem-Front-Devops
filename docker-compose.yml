@@ -15,7 +15,7 @@ services:
 
   spring:
     container_name: spring
-    image: eyabenamor/springimag:latest
+    image: eyabenamor/springimage:latest
     restart: on-failure
     ports:
       - "8089:8089"
