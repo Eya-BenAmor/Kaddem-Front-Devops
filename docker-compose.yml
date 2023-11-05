@@ -6,8 +6,7 @@ services:
       - "3000:3000"
 
   spring:
-    build:
-      context: ./testDevops
+    image: eyabenamor/firstimage
     ports:
       - "8080:8080"
 
