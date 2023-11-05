@@ -70,7 +70,7 @@
 
 
                     <configuration>
-                        <finalName>khaddem</finalName>
+                        <finalName>khaddem-4.0.2</finalName>
                     </configuration>
 
             </plugin>
