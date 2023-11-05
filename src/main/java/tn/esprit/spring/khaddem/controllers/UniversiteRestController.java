@@ -14,7 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/universite")
 @Tag(name = "Universite", description = "Gestion des universités")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:4200")
 public class UniversiteRestController {
     @Autowired
     IUniversiteService universiteService;
