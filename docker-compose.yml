@@ -22,7 +22,7 @@ services:
     depends_on:
       - mysql
     environment:
-      - spring.datasource.url=jdbc:mysql://mysqldb:3306/kaddem?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true
+      - spring.datasource.url=jdbc:mysql://mysql:3306/kaddem?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true
       - spring.datasource.username=root
       - spring.datasource.password=root
       - spring.jpa.show-sql=true
