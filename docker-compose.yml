@@ -2,19 +2,29 @@ version: '3'
 services:
 
 
-  spring:
-    depends_on:
-      - mysql
-    image: eyabenamor/firstimage
-    ports:
-      - "8089:8089"
 
   mysql:
+    container_name: mysql
     image: mysql:latest
-    environment:
-      MYSQL_ROOT_USERNAME: root
-      MYSQL_ROOT_PASSWORD:
     ports:
       - "3306:3306"
-    restart: unless-stopped
+    environment:
+      - MYSQL_DATABASE=kaddem
+      - MYSQL_ROOT_PASSWORD=root
 
+
+  spring:
+    container_name: spring
+    image: eyabenamor/firstimage:latest
+    restart: on-failure
+    ports:
+      - "8089:8089"
+    depends_on:
+      - mysqldb
+    environment:
+      - spring.datasource.url=jdbc:mysql://mysqldb:3306/kaddem?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true
+      - spring.datasource.username=root
+      - spring.datasource.password=root
+      - spring.jpa.show-sql=true
+      - spring.jpa.hibernate.ddl-auto=update
+      - spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
