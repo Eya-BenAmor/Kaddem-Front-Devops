@@ -1,11 +1,10 @@
 version: '3'
 services:
-  angular:
-    image: eyabenamor/nextimage:latest
-    ports:
-      - "3000:3000"
+
 
   spring:
+    depends_on:
+      - mysql
     image: eyabenamor/firstimage
     ports:
       - "8080:8080"
