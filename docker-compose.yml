@@ -45,6 +45,9 @@ services:
       - spring.jpa.show-sql=true
       - spring.jpa.hibernate.ddl-auto=update
       - spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
+      -
+    networks:
+      - mynet
 
   angular:
     image: eyabenamor/angular:latest
@@ -52,5 +55,8 @@ services:
       - 4200:4200
     depends_on:
       - spring
+    networks:
+      - mynet
+      - 
 networks:
   mynet:
