@@ -11,6 +11,23 @@ services:
     environment:
       - MYSQL_DATABASE=kaddem
       - MYSQL_ROOT_PASSWORD=root
+    networks:
+      - mynet
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin
+    ports:
+      - "8080:80"
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=mysql
+    depends_on:
+      - mysql
+    networks:
+      - mynet
+
+
 
 
   spring:
@@ -29,4 +46,11 @@ services:
       - spring.jpa.hibernate.ddl-auto=update
       - spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
 
-
+  angular:
+    image: eyabenamor/angular:latest
+    ports:
+      - 4200:4200
+    depends_on:
+      - spring
+networks:
+  mynet:
