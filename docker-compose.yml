@@ -49,6 +49,7 @@ services:
       - mynet
 
   angular:
+    container_name: angular_container
     image: eyabenamor/angular:latest
     ports:
       - "4200:80"
