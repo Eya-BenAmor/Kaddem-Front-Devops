@@ -57,6 +57,6 @@ services:
       - spring
     networks:
       - mynet
-      - 
+
 networks:
   mynet:
