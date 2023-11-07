@@ -32,7 +32,7 @@ services:
 
   spring:
     container_name: spring
-    image: eyabenamor/spring:latest
+    image: eyabenamor/newspring:latest
     restart: on-failure
     ports:
       - "8089:8089"
@@ -54,7 +54,7 @@ services:
     ports:
       - "4200:80"
     depends_on:
-      - spring
+      - newspring
     networks:
       - mynet
 
