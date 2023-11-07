@@ -30,8 +30,8 @@ services:
 
 
 
-  spring:
-    container_name: spring
+  newspring:
+    container_name: newspring
     image: eyabenamor/newspring:latest
     restart: on-failure
     ports:
