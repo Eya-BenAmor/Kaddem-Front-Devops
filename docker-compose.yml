@@ -11,6 +11,7 @@ services:
     environment:
       - MYSQL_DATABASE=kaddem
       - MYSQL_ROOT_PASSWORD=root
+    command: --collect.auto_increment.columns
     networks:
       - mynet
 
