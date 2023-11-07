@@ -1,4 +1,4 @@
 FROM openjdk:8
 EXPOSE 80
-ADD target/khaddem.jar  khaddem.jar
-ENTRYPOINT ["java","-jar","khaddem.jar"]
+ADD target/5TWIN6-DevGurus-Kaddem.jar  5TWIN6-DevGurus-Kaddem.jar
+ENTRYPOINT ["java","-jar","5TWIN6-DevGurus-Kaddem.jar"]
