@@ -9,8 +9,6 @@ services:
     environment:
       - MYSQL_DATABASE=kaddem
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_USER= root
-      - MYSQL_PASS= root
     volumes:
       - /home/vagrant/mysql:/var/lib/mysql
     networks:
@@ -26,7 +24,7 @@ services:
     volumes:
       - /home/vagrant/mysql-exporter/.my.cnf:/.my.cnf
     environment:
-      - DATA_SOURCE_NAME='root:root@(mysql:3306)/db'
+      - DATA_SOURCE_NAME='root:root@(mysql:3306)/'
       - collect.info_schema.tablestats=true
       - collect.info_schema.userstats=true
       - collect.info_schema.query_response_time=true
@@ -98,5 +96,4 @@ services:
 networks:
   mynet:
 
-volumes:
-  mysql:
+
