@@ -21,8 +21,8 @@ services:
       - "9104:9104"
     environment:
       - DATA_SOURCE_NAME=root:root@tcp(mysql:3306)/
-    volumes:
-      - /home/vagrant/.my.cnf:/cfg/.my.cnf
+    depends_on:
+      - mysql
     networks:
       - mynet
 
