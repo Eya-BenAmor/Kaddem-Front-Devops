@@ -50,7 +50,8 @@ services:
       - DATA_SOURCE_NAME='root:root@tcp(mysql:3306)/kaddem'
     networks:
       - mynet
-
+    depends_on:
+      - mysql
 
   newspring:
     container_name: newspring
