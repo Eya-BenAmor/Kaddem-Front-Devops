@@ -22,7 +22,8 @@ services:
       - MYSQL_DATABASE=kaddem
       - MYSQL_ROOT_PASSWORD=root
     networks:
-      - mynet
+      mynet:
+        ipv4_address: 172.18.0.2
 
 
   phpmyadmin:
@@ -47,7 +48,7 @@ services:
     volumes:
       - /home/vagrant/mysql-exporter/.my.cnf:/.my.cnf
     environment:
-      - DATA_SOURCE_NAME='root:root@mysql:3306/kaddem'
+      - DATA_SOURCE_NAME='root:root@172.18.0.2:3306/kaddem'
     depends_on:
       - mysql
     networks:
@@ -90,6 +91,14 @@ services:
 
 networks:
   mynet:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.18.0.0/16
+          gateway: 172.18.0.1
+
+
 
 
 
