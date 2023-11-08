@@ -23,6 +23,7 @@ services:
       - MYSQL_ROOT_PASSWORD=password
       - MYSQL_USER=eya
       - MYSQL_PASSWORD=eya
+    command: --initialize-insecure
     networks:
       - mynet
 
