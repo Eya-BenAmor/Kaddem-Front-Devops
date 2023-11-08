@@ -2,6 +2,19 @@ version: '3'
 services:
 
 
+  mysql-exporter:
+    container_name: mysql-exporter
+    image: prom/mysqld-exporter:latest
+    ports:
+      - "9104:9104"
+    environment:
+      - DATA_SOURCE_NAME=eya:new@(172.16.1.98:3306)/
+    depends_on:
+      - mysql
+    networks:
+      - mynet
+
+
 
   mysql:
     container_name: mysql
@@ -11,22 +24,11 @@ services:
     environment:
       - MYSQL_DATABASE=kaddem
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_USER= root
-      - MYSQL_PASSWORD= root
+      - MYSQL_USER= eya
+      - MYSQL_PASS= new
     networks:
       - mynet
 
-  mysql-exporter:
-    container_name: mysql-exporter
-    image: prom/mysqld-exporter:latest
-    ports:
-      - "9104:9104"
-    environment:
-      - DATA_SOURCE_NAME=root:root@(mysql:3306)/
-    depends_on:
-      - mysql
-    networks:
-      - mynet
 
 
 
