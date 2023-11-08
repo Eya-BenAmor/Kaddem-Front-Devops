@@ -7,10 +7,23 @@ services:
     image: prom/mysqld-exporter:latest
     ports:
       - "9104:9104"
+    volumes:
+      - ./mysql-exporter/.my.cnf:/root/.my.cnf
     environment:
-      - DATA_SOURCE_NAME=root:root@(172.16.1.98:3306)/
+        - DATA_SOURCE_NAME='root:root@(mysql:3306)/db'
+        - collect.info_schema.tablestats=true
+        - collect.info_schema.userstats=true
+        - collect.info_schema.query_response_time=true
+        - collect.auto_increment.columns=true
+        - collect.binlog_size=true
+        - collect.perf_schema.eventsstatements=true
+        - collect.perf_schema.eventswaits=true
+        - collect.perf_schema.file_events=true
+        - collect.perf_schema.indexiowaits=true
+        - collect.perf_schema.tableiowaits=true
+        - collect.perf_schema.tablelocks=true
     depends_on:
-      - mysql
+        - mysql
     networks:
       - mynet
 
@@ -26,11 +39,12 @@ services:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_USER= root
       - MYSQL_PASS= root
+    volumes:
+      - mysql:/var/lib/mysql
     networks:
       - mynet
-    volumes:
-      - /home/vagrant/mysql_data:/var/lib/mysql
-      
+
+
 
 
 
@@ -80,3 +94,6 @@ services:
 
 networks:
   mynet:
+
+volumes:
+  mysql:
