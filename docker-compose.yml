@@ -8,7 +8,7 @@ services:
     ports:
       - "9104:9104"
     volumes:
-      - ./mysql-exporter/.my.cnf:/root/.my.cnf
+      - /home/vagrant/mysql-exporter/.my.cnf:/root/.my.cnf
     environment:
         - DATA_SOURCE_NAME='root:root@(mysql:3306)/db'
         - collect.info_schema.tablestats=true
@@ -40,7 +40,7 @@ services:
       - MYSQL_USER= root
       - MYSQL_PASS= root
     volumes:
-      - mysql:/var/lib/mysql
+      - /home/vagrant/mysql:/var/lib/mysql
     networks:
       - mynet
 
