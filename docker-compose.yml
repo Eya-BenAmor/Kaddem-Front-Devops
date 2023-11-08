@@ -22,7 +22,7 @@ services:
     environment:
       - DATA_SOURCE_NAME=root:root@tcp(mysql:3306)/
     volumes:
-      - /etc/.my.cnf
+      - /home/vagrant/.my.cnf
     networks:
       - mynet
 
