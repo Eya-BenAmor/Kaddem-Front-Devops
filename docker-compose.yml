@@ -12,7 +12,7 @@ services:
       - MYSQL_DATABASE=kaddem
       - MYSQL_ROOT_PASSWORD=root
     volumes:
-      - /etc/.mysqld_exporter.cnf
+      - /etc/.my.cnf
     networks:
       - mynet
 
