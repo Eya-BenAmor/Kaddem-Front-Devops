@@ -1,5 +1,17 @@
+
+
+
+
+
+
+
+
+
+
+
 version: '3'
 services:
+
 
   mysql:
     container_name: mysql
@@ -11,40 +23,6 @@ services:
       - MYSQL_ROOT_PASSWORD=root
     networks:
       - mynet
-
-
-
-  mysql-exporter:
-    container_name: mysql-exporter
-    image: prom/mysqld-exporter:latest
-    ports:
-      - "9104:9104"
-    volumes:
-      - /home/vagrant/mysql-exporter/.my.cnf:/.my.cnf
-    environment:
-      - DATA_SOURCE_NAME='root:root@(mysql:3306)/'
-      - collect.info_schema.tablestats=true
-      - collect.info_schema.userstats=true
-      - collect.info_schema.query_response_time=true
-      - collect.auto_increment.columns=true
-      - collect.binlog_size=true
-      - collect.perf_schema.eventsstatements=true
-      - collect.perf_schema.eventswaits=true
-      - collect.perf_schema.file_events=true
-      - collect.perf_schema.indexiowaits=true
-      - collect.perf_schema.tableiowaits=true
-      - collect.perf_schema.tablelocks=true
-    depends_on:
-      - mysql
-    networks:
-      - mynet
-
-
-
-
-
-
-
 
 
   phpmyadmin:
@@ -59,8 +37,6 @@ services:
       - mysql
     networks:
       - mynet
-
-
 
 
   newspring:
@@ -81,6 +57,7 @@ services:
     networks:
       - mynet
 
+
   angular:
     container_name: angular_container
     image: eyabenamor/angular:latest
@@ -91,7 +68,30 @@ services:
     networks:
       - mynet
 
+        
 networks:
   mynet:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
