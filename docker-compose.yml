@@ -21,10 +21,13 @@ services:
       - "9104:9104"
     environment:
       - DATA_SOURCE_NAME=root:root@tcp(mysql:3306)/
-    volumes:
-      - /home/vagrant/.my.cnf
     networks:
       - mynet
+    links:
+      - mysql
+    depends_on:
+      - mysql
+
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
