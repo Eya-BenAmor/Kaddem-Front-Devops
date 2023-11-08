@@ -11,8 +11,6 @@ services:
     environment:
       - MYSQL_DATABASE=kaddem
       - MYSQL_ROOT_PASSWORD=root
-    volumes:
-      - /etc/.my.cnf
     networks:
       - mynet
 
@@ -23,6 +21,8 @@ services:
       - "9104:9104"
     environment:
       - DATA_SOURCE_NAME=root:root@tcp(mysql:3306)/
+    volumes:
+      - /etc/.my.cnf
     networks:
       - mynet
 
