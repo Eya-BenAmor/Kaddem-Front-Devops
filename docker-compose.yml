@@ -39,6 +39,25 @@ services:
       - mynet
 
 
+  mysql-exporter:
+    container_name: mysql-exporter
+    image: prom/mysqld-exporter:latest
+    ports:
+      - "9104:9104"
+    volumes:
+      - /home/vagrant/mysql-exporter/.my.cnf:/.my.cnf
+    environment:
+      - DATA_SOURCE_NAME='root:root@(mysql:3306)/'
+    depends_on:
+      - mysql
+    networks:
+      - mynet
+
+
+
+
+
+
   newspring:
     container_name: newspring
     image: eyabenamor/newspring:latest
@@ -68,7 +87,7 @@ services:
     networks:
       - mynet
 
-        
+
 networks:
   mynet:
 
