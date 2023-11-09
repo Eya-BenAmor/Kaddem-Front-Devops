@@ -13,8 +13,8 @@ version: '3'
 services:
 
 
-  mysqldb:
-    container_name: mysqldb
+  mysql:
+    container_name: mysql
     image: mysql:latest
     ports:
       - "3306:3306"
@@ -32,9 +32,9 @@ services:
       - "8085:80"
     environment:
       - PMA_ARBITRARY=1
-      - PMA_HOST=mysqldb
+      - PMA_HOST=mysql
     depends_on:
-      - mysqldb
+      - mysql
     networks:
       - mynet
 
@@ -47,12 +47,12 @@ services:
     volumes:
       - /home/vagrant/mysql-exporter/.my.cnf:/.my.cnf
     environment:
-      - DATA_SOURCE_NAME='root:root@tcp(mysqldb:3306)/kaddem'
+      - DATA_SOURCE_NAME='root:root@tcp(172.16.1.98:3306)/kaddem'
 
     networks:
       - mynet
     depends_on:
-      - mysqldb
+      - mysql
 
   newspring:
     container_name: newspring
@@ -61,7 +61,7 @@ services:
     ports:
       - "8089:8089"
     depends_on:
-      - mysqldb
+      - mysql
     environment:
       - spring.datasource.url=jdbc:mysql://mysql:3306/kaddem?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true
       - spring.datasource.username=root
