@@ -47,7 +47,8 @@ services:
     volumes:
       - /home/vagrant/mysql-exporter/.my.cnf:/.my.cnf
     environment:
-      - DATA_SOURCE_NAME='root:root@tcp(mysql:3306)/kaddem'
+      - DATA_SOURCE_NAME='root:root@(mysql:3306)/kaddem'
+      - MYSQL_HOST=mysql
     networks:
       - mynet
     depends_on:
