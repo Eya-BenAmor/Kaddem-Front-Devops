@@ -48,12 +48,7 @@ services:
       - /home/vagrant/mysql-exporter/.my.cnf:/.my.cnf
     environment:
       - DATA_SOURCE_NAME='eya:eya@(172.19.0.2:3306)/kaddem'
-      - collect.info_schema.processlist
-      - collect.info_schema.innodb_metrics
-      - collect.info_schema.tablestats
-      - collect.info_schema.tables
-      - collect.info_schema.userstats
-      - collect.engine_innodb_status
+    
 
     networks:
       - mynet
