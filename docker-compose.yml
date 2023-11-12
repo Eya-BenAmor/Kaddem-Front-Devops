@@ -39,8 +39,8 @@ services:
       - mynet
 
 
-  mysql-exporter:
-    container_name: mysql-exporter
+  mysql-exporter2:
+    container_name: mysql-exporter2
     image: prom/mysqld-exporter:latest
     ports:
       - "9104:9104"
@@ -48,8 +48,6 @@ services:
       - /home/vagrant/mysql-exporter/.my.cnf:/.my.cnf
     environment:
       - DATA_SOURCE_NAME='eya:eya@(172.19.0.2:3306)/kaddem'
-    
-
     networks:
       - mynet
     depends_on:
