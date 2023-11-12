@@ -39,8 +39,8 @@ services:
       - mynet
 
 
-  mysql-exporter2:
-    container_name: mysql-exporter2
+  mysql-exporter:
+    container_name: mysql-exporter
     image: prom/mysqld-exporter:latest
     ports:
       - "9104:9104"
