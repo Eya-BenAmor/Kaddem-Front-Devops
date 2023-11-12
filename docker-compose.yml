@@ -54,9 +54,9 @@ services:
     depends_on:
       - mysql
 
-  newspring:
-    container_name: newspring
-    image: eyabenamor/newspring:latest
+  spring:
+    container_name: spring
+    image: eyabenamor/spring:latest
     restart: on-failure
     ports:
       - "8089:8089"
@@ -79,7 +79,7 @@ services:
     ports:
       - "4200:80"
     depends_on:
-      - newspring
+      - spring
     networks:
       - mynet
 
