@@ -47,7 +47,13 @@ services:
     volumes:
       - /home/vagrant/mysql-exporter/.my.cnf:/.my.cnf
     environment:
-      - DATA_SOURCE_NAME='root:root@tcp(172.16.1.98:3306)/kaddem'
+      - DATA_SOURCE_NAME='eya:eya@(mysql:3306)/kaddem'
+      - collect.info_schema.processlist
+      - collect.info_schema.innodb_metrics
+      - collect.info_schema.tablestats
+      - collect.info_schema.tables
+      - collect.info_schema.userstats
+      - collect.engine_innodb_status
 
     networks:
       - mynet
