@@ -4,6 +4,8 @@ package tn.esprit.spring.khaddem.controllers;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.spring.khaddem.DTO.UniversiteDTO;
 import tn.esprit.spring.khaddem.entities.Universite;
@@ -78,4 +80,7 @@ public class UniversiteRestController {
     public void assignUniversiteToDepartement(@PathVariable("universiteId") Integer universiteId,@PathVariable("departementId") Integer departementId) {
         universiteService.assignUniversiteToDepartement(universiteId,departementId);
     }
+
+
+
 }
